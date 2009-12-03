@@ -15,6 +15,7 @@ BuildRequires:	QtXml-devel >= 4.5
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	cmake
+BuildRequires:	fftw3-single-devel
 BuildRequires:	fluidsynth-devel >= 1.0.7
 BuildRequires:	jack-audio-connection-kit-devel
 BuildRequires:	libogg-devel
@@ -23,8 +24,9 @@ BuildRequires:	libsndfile-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
-BuildRequires:	qt4-qmake
 BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
+BuildRequires:	xorg-lib-libXft-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
