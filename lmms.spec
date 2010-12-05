@@ -2,12 +2,12 @@
 Summary:	Linux MultiMedia Studio
 Summary(pl.UTF-8):	MultiMedialne Studio Linuksa
 Name:		lmms
-Version:	0.4.5
+Version:	0.4.8
 Release:	1
 License:	GPL V2
 Group:		X11/Applications/Sound
-Source0:	http://dl.sourceforge.net/project/lmms/lmms/0.4.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	6d58d73b44baddadc4f0ac6464fbd530
+Source0:	http://downloads.sourceforge.net/project/lmms/lmms/%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	8573b8376808c77c058cca3a57a36d8d
 URL:		http://lmms.sourceforge.net/
 BuildRequires:	QtCore-devel >= 4.5
 BuildRequires:	QtGui-devel >= 4.5
@@ -15,7 +15,7 @@ BuildRequires:	QtXml-devel >= 4.5
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	cmake
-BuildRequires:	fftw3-single-devel
+BuildRequires:	fftw3-single-devel >= 3.0.0
 BuildRequires:	fluidsynth-devel >= 1.0.7
 BuildRequires:	jack-audio-connection-kit-devel
 BuildRequires:	libogg-devel
@@ -27,6 +27,7 @@ BuildRequires:	pulseaudio-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	xorg-lib-libXft-devel
+Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -93,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/lmms.1*
 %{_datadir}/mime/packages/lmms.xml
 %{_datadir}/lmms
+%{_pixmapsdir}/lmms.png
 %exclude %{_datadir}/menu
 
 %files devel
@@ -104,5 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{_libdir}/lmms
 %attr(755,root,root)%{_libdir}/lmms/*.so
+%attr(755,root,root)%{_libdir}/lmms/RemoteZynAddSubFx
 %dir %{_libdir}/lmms/ladspa
 %attr(755,root,root)%{_libdir}/lmms/ladspa/*.so
