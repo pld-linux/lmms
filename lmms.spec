@@ -23,6 +23,7 @@ BuildRequires:	libsamplerate-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	pkgconfig
+BuildRequires:	portaudio-devel
 BuildRequires:	pulseaudio-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
