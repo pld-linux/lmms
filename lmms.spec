@@ -2,12 +2,12 @@
 Summary:	Linux MultiMedia Studio
 Summary(pl.UTF-8):	MultiMedialne Studio Linuksa
 Name:		lmms
-Version:	0.4.8
+Version:	0.4.10
 Release:	1
 License:	GPL V2
 Group:		X11/Applications/Sound
 Source0:	http://downloads.sourceforge.net/project/lmms/lmms/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	8573b8376808c77c058cca3a57a36d8d
+# Source0-md5:	dc44dc7bc3f3fa697a78b1719288d762
 URL:		http://lmms.sourceforge.net/
 BuildRequires:	QtCore-devel >= 4.5
 BuildRequires:	QtGui-devel >= 4.5
