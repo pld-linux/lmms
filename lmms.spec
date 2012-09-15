@@ -2,13 +2,14 @@
 Summary:	Linux MultiMedia Studio
 Summary(pl.UTF-8):	MultiMedialne Studio Linuksa
 Name:		lmms
-Version:	0.4.11
-Release:	5
+Version:	0.4.13
+Release:	1
 License:	GPL V2
 Group:		X11/Applications/Sound
-Source0:	http://downloads.sourceforge.net/project/lmms/lmms/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	b72c3a87a43e7653bf83d13f35c5d963
+Source0:	http://downloads.sourceforge.net/lmms/%{name}-%{version}.tar.bz2
+# Source0-md5:	80db0dc5263041d443f474220410991f
 Patch0:		cmake_buildef.patch
+Patch1:		%{name}-gcc47.patch
 URL:		http://lmms.sourceforge.net/
 BuildRequires:	QtCore-devel >= 4.5
 BuildRequires:	QtGui-devel >= 4.5
@@ -20,8 +21,8 @@ BuildRequires:	fftw3-single-devel >= 3.0.0
 BuildRequires:	fluidsynth-devel >= 1.0.7
 BuildRequires:	jack-audio-connection-kit-devel
 BuildRequires:	libogg-devel
-BuildRequires:	libsamplerate-devel
-BuildRequires:	libsndfile-devel
+BuildRequires:	libsamplerate-devel >= 0.1.8
+BuildRequires:	libsndfile-devel >= 1.0.11
 BuildRequires:	libvorbis-devel
 BuildRequires:	pkgconfig
 BuildRequires:	portaudio-devel
@@ -66,6 +67,7 @@ Biblioteka LMMS.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p1
 
 %build
 install -d build
@@ -84,6 +86,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/menu/lmms
+%{__rm} $RPM_BUILD_ROOT%{_includedir}/lmms/embed.cpp
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -98,13 +103,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime/packages/lmms.xml
 %{_datadir}/lmms
 %{_pixmapsdir}/lmms.png
-%exclude %{_datadir}/menu
 
 %files devel
 %defattr(644,root,root,755)
 %dir %{_includedir}/lmms
 %{_includedir}/lmms/*.h
-%exclude %{_includedir}/lmms/*.cpp
 
 %files libs
 %defattr(644,root,root,755)
