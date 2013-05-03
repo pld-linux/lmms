@@ -1,13 +1,12 @@
-
 Summary:	Linux MultiMedia Studio
 Summary(pl.UTF-8):	MultiMedialne Studio Linuksa
 Name:		lmms
-Version:	0.4.13
+Version:	0.4.14
 Release:	1
 License:	GPL V2
 Group:		X11/Applications/Sound
 Source0:	http://downloads.sourceforge.net/lmms/%{name}-%{version}.tar.bz2
-# Source0-md5:	80db0dc5263041d443f474220410991f
+# Source0-md5:	a30e4fcc24c117a1fb4fd7bef891f7e8
 Patch0:		cmake_buildef.patch
 Patch1:		%{name}-gcc47.patch
 URL:		http://lmms.sourceforge.net/
