@@ -21,7 +21,7 @@ Source2:	https://github.com/Lukas-W/qt5-x11embed/archive/%{qt5_x11embed_version}
 Patch0:		fluidsynth2.patch
 Patch1:		bash_completion_install.patch
 URL:		https://lmms.io/
-BuildRequires:	Carla-devel >= 1.9.5
+BuildRequires:	Carla-devel >= 2.0-0.rc2.3
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel
