@@ -26,6 +26,7 @@ BuildRequires:	Mesa-libGL-devel
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel
 BuildRequires:	Qt5Xml-devel
+BuildRequires:	Qt5X11Extras-devel
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	cmake
