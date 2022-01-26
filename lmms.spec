@@ -2,24 +2,19 @@
 %define		rpmalloc_version 1.3.0
 %define		qt5_x11embed_version 022b39a1d496d72eb3e5b5188e5559f66afca957
 
-%define		_rc	rc7
-%define		rel	1
-
 Summary:	Linux MultiMedia Studio
 Summary(pl.UTF-8):	MultiMedialne Studio Linuksa
 Name:		lmms
-Version:	1.2.0
-Release:	0.%{_rc}.%{rel}
+Version:	1.2.2
+Release:	1
 License:	GPL V2
 Group:		X11/Applications/Sound
-Source0:	https://github.com/LMMS/lmms/archive/v%{version}-%{_rc}/%{name}-%{version}-%{_rc}.tar.gz
-# Source0-md5:	4d527a7f4fc38b105eac55fbd49cf2bb
+Source0:	https://github.com/LMMS/lmms/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	05ae14878db8bee074d520371e6cc779
 Source1:	https://github.com/rampantpixels/rpmalloc/archive/%{rpmalloc_version}/rpmalloc-%{rpmalloc_version}.tar.gz
 # Source1-md5:	95109beaddeaafd20345ebe4e10c76ba
 Source2:	https://github.com/Lukas-W/qt5-x11embed/archive/%{qt5_x11embed_version}/qt5-x11embed-%{qt5_x11embed_version}.tar.gz
 # Source2-md5:	193f7a94d1af51c2f85628fcbbf2bf49
-Patch0:		fluidsynth2.patch
-Patch1:		bash_completion_install.patch
 URL:		https://lmms.io/
 BuildRequires:	Carla-devel >= 2.0-0.rc2.3
 BuildRequires:	Mesa-libGL-devel
@@ -83,7 +78,7 @@ LMMS library.
 Biblioteka LMMS.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_rc} -a1 -a2
+%setup -q -a1 -a2
 
 rmdir src/3rdparty/rpmalloc/rpmalloc
 ln -s ../../../rpmalloc-%{rpmalloc_version} src/3rdparty/rpmalloc/rpmalloc
@@ -93,9 +88,6 @@ ln -s ../../qt5-x11embed-%{qt5_x11embed_version} src/3rdparty/qt5-x11embed
 
 rmdir qt5-x11embed-%{qt5_x11embed_version}/3rdparty/ECM
 ln -s %{_datadir}/ECM qt5-x11embed-%{qt5_x11embed_version}/3rdparty/ECM
-
-%patch0 -p1
-%patch1 -p1
 
 %build
 install -d build
@@ -146,6 +138,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{_libdir}/lmms
 %attr(755,root,root)%{_libdir}/lmms/*.so
-%attr(755,root,root)%{_libdir}/lmms/RemoteZynAddSubFx
 %dir %{_libdir}/lmms/ladspa
 %attr(755,root,root)%{_libdir}/lmms/ladspa/*.so
